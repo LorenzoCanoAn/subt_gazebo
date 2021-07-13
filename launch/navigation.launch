@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<launch>
+
+        <node pkg="laser_shaper" type="laser_shaper" name="laser_shaper_front">
+                <param name="range_max_value_diff" value="1"/>
+		<param name="spurious" value="10.0"/>
+                <remap from="scan" to="laser_front/scan"/>
+                <remap from="scan/shaped" to="laser_front/scan/shaped"/>
+        </node>
+
+	<node pkg="wally" type="wally" name="wally" output="screen" respawn="true">
+		<remap from="/in/scan1" to="/laser_front/scan"/>
+		<remap from="/in/scan2" to="/laser_back/scan"/>
+		<remap from="/in/odom" to="/sim_p3at/odom"/>
+    		<param name="publish_tf" value="wally" />
+		<param name="zero_is" value="center" />
+		<param name="use_odom" value="false" />	
+		<param name="period" value="5000" />	
+                <param name="length_min" value="10.0" />
+		<param name="hallway_width" value="5.5"/> 
+		<param name="laser_front_frame" value="laser_front"/> 
+		<param name="laser_rear_frame" value="laser_back"/>
+	</node>
+
+	<node name="goalwall" pkg="trackwall" type="goalwall" output="screen" respawn="true">
+    		<param name="wall_side" value="right"/>
+    		<param name="distance" value="0" />
+    		<param name="goal_separation" value="10.0" />
+		<param name="timer_active" value="true" />
+    		<param name="freq_goal" value="1" />
+    		<param name="length" value="1000.0" />
+    		<param name="global_reference_frame" value="wally" />
+    		<param name="local_reference_frame" value="laser_front" />
+		<param name="mode" value="1" />
+  		<remap from="wall_right" to="/out/right" />
+    		<remap from="goalStamped" to="move_base_simple/goal" />
+	</node>
+
+
+  	<node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+    		<rosparam file="$(find amr_robots_description)/param/costmap_common_params_pioneer.yaml" command="load" ns="local_costmap" />
+    		<rosparam file="$(find amr_robots_description)/param/costmap_common_params_pioneer.yaml" command="load" ns="global_costmap" />  
+    		<rosparam file="$(find amr_robots_description)/param/local_costmap_params_pioneer.yaml" command="load" />  
+    		<rosparam file="$(find amr_robots_description)/param/base_local_planner_params.yaml" command="load" />
+		<rosparam file="$(find amr_robots_description)/param/global_costmap_params.yaml" command="load" />
+
+   		<remap from="cmd_vel" to="/sim_p3at/cmd_vel"/>
+    		<remap from="odom" to="/sim_p3at/odom"/>
+    		<remap from="scan" to="/laser_front/scan"/>
+  	</node>
+
+
+</launch>

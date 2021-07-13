@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<launch>
+	<node name="goalwall" pkg="trackwall" type="goalwall" output="screen" respawn="true">
+    		<param name="wall_side" value="right"/>
+    		<param name="distance" value="0" />
+    		<param name="goal_separation" value="10.0" />
+		<param name="timer_active" value="true" />
+    		<param name="freq_goal" value="1" />
+    		<param name="length" value="1000.0" />
+    		<param name="global_reference_frame" value="odom" />
+    		<param name="local_reference_frame" value="laser_front" />
+		<param name="mode" value="1" />
+  		<remap from="wall_right" to="/out/right" />
+    		<remap from="goalStamped" to="move_base_simple/goal" />
+	</node>
+
+
+
+
+
+</launch>

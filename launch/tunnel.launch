@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<launch>
+
+  <!--<param name="use_sim_time" value="true"/> -->
+
+  <env name="GAZEBO_MODEL_PATH" value="$GAZEBO_MODEL_PATH:$(find amr_robots_gazebo)/models" />
+  <env name="GAZEBO_RESOURCE_PATH" value="$GAZEBO_RESOURCE_PATH:$(find amr_robots_gazebo)/models" />
+
+  <!-- Robot pose -->
+  <arg name="x" default="10"/>
+  <arg name="y" default="0"/>
+  <arg name="z" default="0.0"/>
+
+  <arg name="urdf" default="$(find amr_robots_description)/urdf/pioneer3atvelodyne.urdf" />
+
+  <param name="robot_description" command="$(find xacro)/xacro.py $(arg urdf)" />
+
+  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model pioneer3at_robot -x $(arg x) -y $(arg y) -z $(arg z)" />
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+
+
+  <arg name="scenario" default="test_unizar"/>
+  <arg name="extra_gazebo_args" default=""/>
+
+  <param name="subt/gazebo_worlds_dir" value="$(find subt_gazebo)/worlds/" />
+
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find subt_gazebo)/worlds/$(arg scenario).world" />
+    <arg name="paused" value="false"/>
+    <!--<arg name="use_sim_time" value="true"/> -->
+    <arg name="gui" value="true"/>
+    <arg name="headless" value="false"/>
+    <arg name="debug" value="false"/>
+    <arg name="extra_gazebo_args" value="$(arg extra_gazebo_args) --verbose"/>
+  </include>
+
+   <node pkg="pointcloud_to_laserscan" type="pointcloud_to_laserscan_node" name="pointcloud_to_laserscan">
+      <remap from="cloud_in" to="/velodyne_points"/>
+      <remap from="scan" to="/laser_front/scan" />
+      <param name="target_frame" value="laser_front"/>
+      <param name="min_height" value="0.10"/>
+      <param name="max_height" value="0.5"/>
+      <param name="angle_min" value="-1.5708"/>
+      <param name="angle_max" value="1.5708"/> -->
+    </node>
+
+
+
+  <node pkg="rviz" type="rviz" name="rviz_tunel" args="-d $(find subt_gazebo)/models/p3at-tunel.rviz" output="screen"/>
+
+
+
+</launch>

@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<launch>
+
+
+  	<node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+    		<rosparam file="$(find pioneer3at_navigator)/param/costmap_common_params_pioneer.yaml" command="load" ns="local_costmap" />
+    		<rosparam file="$(find pioneer3at_navigator)/param/costmap_common_params_pioneer.yaml" command="load" ns="global_costmap" />  
+    		<rosparam file="$(find pioneer3at_navigator)/param/local_costmap_params_pioneer.yaml" command="load" />  
+    		<rosparam file="$(find pioneer3at_navigator)/param/base_local_planner_params.yaml" command="load" />
+		<rosparam file="$(find pioneer3at_navigator)/param/global_costmap_params.yaml" command="load" />
+
+   		<remap from="cmd_vel" to="/sim_p3at/cmd_vel"/>
+    		<remap from="odom" to="/sim_p3at/odom"/>
+    		<remap from="scan" to="/laser_front/scan"/>
+  	</node>
+
+
+
+
+
+
+
+
+<!--
+  	<include file="$(find pioneer3at_navigator)/launch/includes/velocity_smoother.launch.xml"/> 
+  
+  	<arg name="odom_frame_id"   default="odom"/>
+  	<arg name="base_frame_id"   default="base_link"/> 
+  	<arg name="global_frame_id" default="wally"/>
+  	<arg name="odom_topic" default="/sim_p3at/odom"/>
+  	<arg name="laser_topic" default="laser_front/scan" />
+
+  	<node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+    		<rosparam file="$(find pioneer3at_navigator)/param/costmap_common_params_pioneer.yaml" command="load" ns="local_costmap" /> 
+    		<rosparam file="$(find pioneer3at_navigator)/param/local_costmap_params_pioneer.yaml" command="load" />  
+    		<rosparam file="$(find pioneer3at_navigator)/param/base_local_planner_params.yaml" command="load" />
+
+     		<param name="global_costmap/global_frame" value="$(arg global_frame_id)"/>
+    		<param name="global_costmap/robot_base_frame" value="$(arg base_frame_id)"/>
+    		<param name="local_costmap/global_frame" value="$(arg odom_frame_id)"/>
+    		<param name="local_costmap/robot_base_frame" value="$(arg base_frame_id)"/>
+    		<param name="DWAPlannerROS/global_frame_id" value="$(arg odom_frame_id)"/>
+
+   		<remap from="cmd_vel" to="navigation_velocity_smoother/raw_cmd_vel"/>
+    		<remap from="odom" to="$(arg odom_topic)"/>
+    		<remap from="scan" to="$(arg laser_topic)"/>
+  	</node>
+-->
+<!--
+	<node pkg="move_base" type="move_base" name="navigation" output="screen">
+    		<rosparam file="$(find somport_launch)/launch/common/global_costmap_wally.yaml"  />
+	    	<rosparam file="$(find somport_launch)/launch/common/eva_common_costmap.yaml" ns="global_costmap" />
+		<rosparam file="$(find somport_launch)/launch/common/local_costmap_wally.yaml" />    
+	    	<rosparam file="$(find somport_launch)/launch/common/eva_common_costmap.yaml"  ns="local_costmap" />
+		<rosparam file="$(find somport_launch)/launch/orm/move_base.yaml" />
+		<rosparam file="$(find somport_launch)/launch/orm/orm_parameters.yaml" command="load" />
+	        <rosparam file="$(find somport_launch)/launch/common/navfn_global_planner_params.yaml" command="load" />
+  	</node>
+-->
+
+</launch>
