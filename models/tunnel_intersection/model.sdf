@@ -1,4 +1,3 @@
-<?xml version="1.0" ?>
 <sdf version="1.6">
   <model name="tunnel_intersection">
     <static>true</static>
@@ -6,16 +5,16 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <scale>0.01 0.01 0.01</scale>
-            <uri>model://tunnel_intersection/meshes/Tunnel_Intersection.obj</uri>
+            <scale>1.0 1.0 1.0</scale>
+            <uri>model://tunnel_intersection/meshes/Tunnel_Intersection.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <scale>0.01 0.01 0.01</scale>
-            <uri>model://tunnel_intersection/meshes/Tunnel_Intersection.obj</uri>
+            <scale>1.0 1.0 1.0</scale>
+            <uri>model://tunnel_intersection/meshes/Tunnel_Intersection.dae</uri>
           </mesh>
         </geometry>
       </visual>
