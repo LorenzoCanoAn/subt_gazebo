@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+
+<launch>
+
+    <!-- Start rviz visualization with preset config -->
+    <node pkg="laser_shaper" type="laser_shaper" name="laser1">
+        <remap from="/scan" to="/scan_up"/>
+        <remap from="/scan/shaped" to="/shaped/scan_up"/>
+	<param name="decimation" value="4"/>
+        <param name="angle_min" value="-90"/>
+        <param name="angle_max" value="90"/>
+    </node>
+
+    <node pkg="laser_shaper" type="laser_shaper" name="laser2">
+        <remap from="/scan" to="/scan_down"/>
+        <remap from="/scan/shaped" to="/shaped/scan_down"/>
+	<param name="decimation" value="4"/>
+        <param name="angle_min" value="-90"/>
+        <param name="angle_max" value="90"/>
+    </node>
+<!--
+   <node pkg="tf" type="static_transform_publisher" name="world_to_perpe" args="-14.770 -25.021 0.182 0 0 0.7071 0.7071 world perpe 100"/> -->
+
+</launch>

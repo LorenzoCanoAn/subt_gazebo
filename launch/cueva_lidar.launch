@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+
+<launch>
+
+   <!-- Start Gazebo with world -->
+   <arg name="scenario" value="cueva_1" />
+
+   <include file="$(find hector_gazebo_worlds)/launch/start.launch">
+   	<arg name="world" value="$(find subt_gazebo)/worlds/$(arg scenario).world" />
+   </include>
+
+  <!-- Spawn simulated quadrotor uav -->
+  <include file="$(find subt_gazebo)/launch/spawn_quadrotor_with_two_lasers.launch">
+    <arg name="x" value="-15.0"/> 
+    <arg name="y" value="-21.0"/>
+    <arg name="z" value="0.3"/>
+  </include>
+
+
+    <node pkg="laser_shaper" type="laser_shaper" name="laser1">
+        <remap from="/scan" to="/scan_up"/>
+        <remap from="/scan/shaped" to="/shaped/scan_up"/>
+        <param name="decimation" value="4"/>
+        <param name="angle_min" value="-90"/>
+        <param name="angle_max" value="90"/>
+    </node>
+
+    <node pkg="laser_shaper" type="laser_shaper" name="laser2">
+        <remap from="/scan" to="/scan_down"/>
+        <remap from="/scan/shaped" to="/shaped/scan_down"/>
+        <param name="decimation" value="4"/>
+        <param name="angle_min" value="-90"/>
+        <param name="angle_max" value="90"/>
+    </node>
+
+</launch>
