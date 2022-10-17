@@ -12,7 +12,7 @@
         </geometry>
       </collision>
 
-      <collision name="collision_ground_1">
+     <!--  <collision name="collision_ground_1">
         <pose>0 9.32313 0 0 0 0</pose>
         <geometry>
           <box>
@@ -100,7 +100,7 @@
             <size>1.36375 4.96733 0.001</size>
           </box>
         </geometry>
-      </collision>
+      </collision> -->
 
       <visual name="visual">
         <geometry>

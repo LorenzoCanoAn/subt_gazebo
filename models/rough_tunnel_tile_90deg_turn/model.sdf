@@ -10,14 +10,14 @@
           </mesh>
         </geometry>
       </collision>
-      <collision name="collision_ground">
+      <!-- <collision name="collision_ground">
         <pose>3.5 -3.5 0 0 0 0</pose>
         <geometry>
           <box>
             <size>13 13 0.001</size>
           </box>
         </geometry>
-      </collision>
+      </collision> -->
       <visual name="visual">
         <geometry>
           <mesh>
