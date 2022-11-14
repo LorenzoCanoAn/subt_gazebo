@@ -21,6 +21,9 @@
 
   <export>
     <!-- path to models -->
-    <gazebo_ros gazebo_model_path="${prefix}/models"/>
+    <gazebo_ros gazebo_model_path="${prefix}/models/modified"/>
+    <gazebo_ros gazebo_model_path="${prefix}/models/non_tilable"/>
+    <gazebo_ros gazebo_model_path="${prefix}/models/tilable"/>
+    <gazebo_ros gazebo_model_path="${prefix}/models/tilable_and_modifiable"/>
   </export>
 </package>
