@@ -3,7 +3,7 @@
   <model name="cave_tile_5">
     <static>true</static>
     <link name="link">
-      <pose>0 0 0 1.570796 0 0</pose>
+      <pose>0 0 0 0 0 0</pose>
       <collision name="collision">
         <geometry>
           <mesh>
