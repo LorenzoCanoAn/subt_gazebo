@@ -25,5 +25,17 @@
     <gazebo_ros gazebo_model_path="${prefix}/models/non_tilable"/>
     <gazebo_ros gazebo_model_path="${prefix}/models/tilable"/>
     <gazebo_ros gazebo_model_path="${prefix}/models/tilable_and_modifiable"/>
+    <gazebo_ros gazebo_model_path="${prefix}/models/modified/only_upper/cave_tile_1"/>
+    <gazebo_ros gazebo_model_path="${prefix}/models/modified/only_upper/cave_tile_2"/>
+    <gazebo_ros gazebo_model_path="${prefix}/models/modified/only_upper/cave_tile_3"/>
+    <gazebo_ros gazebo_model_path="${prefix}/models/modified/only_upper/cave_tile_4"/>
+    <gazebo_ros gazebo_model_path="${prefix}/models/modified/only_upper/cave_tile_5"/>
+    <gazebo_ros gazebo_model_path="${prefix}/models/modified/only_upper/cave_tile_6"/>
+    <gazebo_ros gazebo_model_path="${prefix}/models/modified/only_upper/cave_tile_7"/>
+    <gazebo_ros gazebo_model_path="${prefix}/models/modified/only_upper/cave_tile_8"/>
+    <gazebo_ros gazebo_model_path="${prefix}/models/modified/only_upper/cave_tile_9"/>
+    <gazebo_ros gazebo_model_path="${prefix}/models/modified/only_upper/cave_tile_10"/>
+    <gazebo_ros gazebo_model_path="${prefix}/models/modified/only_upper/cave_tile_ramp"/>
+    <gazebo_ros gazebo_model_path="${prefix}/models/modified/only_upper/cave_tile_blocker"/>
   </export>
 </package>
