@@ -37,5 +37,16 @@
     <gazebo_ros gazebo_model_path="${prefix}/models/modified/only_upper/cave_tile_10"/>
     <gazebo_ros gazebo_model_path="${prefix}/models/modified/only_upper/cave_tile_ramp"/>
     <gazebo_ros gazebo_model_path="${prefix}/models/modified/only_upper/cave_tile_blocker"/>
+
+    <gazebo_ros gazebo_model_path="${prefix}/models/modified/only_upper/tunnel_tile_1"/>
+    <gazebo_ros gazebo_model_path="${prefix}/models/modified/only_upper/tunnel_tile_2"/>
+    <gazebo_ros gazebo_model_path="${prefix}/models/modified/only_upper/tunnel_tile_3"/>
+    <gazebo_ros gazebo_model_path="${prefix}/models/modified/only_upper/tunnel_tile_4"/>
+    <gazebo_ros gazebo_model_path="${prefix}/models/modified/only_upper/tunnel_tile_5"/>
+    <gazebo_ros gazebo_model_path="${prefix}/models/modified/only_upper/tunnel_tile_6"/>
+    <gazebo_ros gazebo_model_path="${prefix}/models/modified/only_upper/tunnel_tile_7"/>
+    <gazebo_ros gazebo_model_path="${prefix}/models/modified/only_upper/tunnel_intersection"/>
+    <gazebo_ros gazebo_model_path="${prefix}/models/modified/only_upper/tunnel_intersection_t"/>
+    <gazebo_ros gazebo_model_path="${prefix}/models/modified/only_upper/tunnel_intersection_t"/>
   </export>
 </package>
