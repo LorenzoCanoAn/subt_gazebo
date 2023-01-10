@@ -4,7 +4,7 @@
 
   <!-- Start Gazebo with world -->
   <arg name="scenario" value="cueva_1" />
-  <arg name="path_to_scenario" default="$(env HOME)/hola.world"/>
+  <arg name="path_to_scenario" default="$(env HOME)/hola.world" />
 
   <!-- Values either 0 or 1 for the static_drone parameter-->
   <arg name="static_drone" default="0" />
@@ -16,27 +16,35 @@
 
   <!-- Spawn simulated quadrotor uav -->
   <include file="$(find subt_gazebo)/launch/spawn_quadrotor_with_two_lasers.launch">
-    <arg name="x" value="0" />
-    <arg name="y" value="10" />
-    <arg name="z" value="0.3" />
-    <arg name="spawn_as_static" value="$(arg static_drone)" />
+    <arg
+      name="x" value="1" />
+    <arg name="y" value="11" />
+    <arg name="z" value="1.3" />
+    <arg
+      name="spawn_as_static" value="$(arg static_drone)" />
   </include>
 
 
-  <node pkg="laser_shaper" type="laser_shaper" name="laser1">
-    <remap from="/scan" to="/scan_up" />
+  <!-- <node pkg="laser_shaper" type="laser_shaper" name="laser1">
+    <remap from="/scan"
+  to="/scan_up" />
     <remap from="/scan/shaped" to="/shaped/scan_up" />
-    <param name="decimation" value="4" />
+    <param
+  name="decimation" value="4" />
     <param name="angle_min" value="-90" />
-    <param name="angle_max" value="90" />
+    <param
+  name="angle_max" value="90" />
   </node>
 
-  <node pkg="laser_shaper" type="laser_shaper" name="laser2">
+  <node pkg="laser_shaper" type="laser_shaper"
+  name="laser2">
     <remap from="/scan" to="/scan_down" />
-    <remap from="/scan/shaped" to="/shaped/scan_down" />
+    <remap from="/scan/shaped"
+  to="/shaped/scan_down" />
     <param name="decimation" value="4" />
-    <param name="angle_min" value="-90" />
+    <param name="angle_min"
+  value="-90" />
     <param name="angle_max" value="90" />
-  </node>
+  </node> -->
 
 </launch>
