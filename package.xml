@@ -25,6 +25,8 @@
     <gazebo_ros gazebo_model_path="${prefix}/models/non_tilable"/>
     <gazebo_ros gazebo_model_path="${prefix}/models/tilable"/>
     <gazebo_ros gazebo_model_path="${prefix}/models/tilable_and_modifiable"/>
+    <gazebo_ros gazebo_model_path="${prefix}/models/cave_tiles"/>
+    <gazebo_ros gazebo_model_path="${prefix}/models/tunnel_tiles"/>
     <gazebo_ros gazebo_model_path="${prefix}/models/modified/only_upper/cave_tile_1"/>
     <gazebo_ros gazebo_model_path="${prefix}/models/modified/only_upper/cave_tile_2"/>
     <gazebo_ros gazebo_model_path="${prefix}/models/modified/only_upper/cave_tile_3"/>
